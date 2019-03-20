@@ -1,0 +1,14 @@
+#containermeals{
+    height:200px;
+    width:100%;
+    overflow:hidden; overflow-y:scroll;
+}
+#containersnacks{
+    height:200px;
+    width:100%;
+    overflow:hidden; overflow-y:scroll;
+}
+#prvi{
+    height:300px;
+    width:200px;
+}

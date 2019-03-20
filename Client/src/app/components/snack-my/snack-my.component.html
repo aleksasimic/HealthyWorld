@@ -1,0 +1,19 @@
+<div class="card" style="width: 100%;">
+    <div><img style='height: 100%; width: 100%; object-fit: contain' src={{snack.img}} class="card-img-top" alt="..."></div>
+    <div class="card-body">
+      <h5 class="card-title"><b>Snack name:</b>{{snack.name}}</h5>
+      <div><b>Date:</b>{{snack.date.day}}.{{snack.date.month}}.{{snack.date.year}} </div>
+      <div><b>Type:</b>{{snack.type}}</div>
+      <div><b>Kcals:</b>{{snack.kcals}}</div>
+      <div><b>Proteins:</b>{{snack.protein}}</div>
+      <div><b>Fat:</b>{{snack.fat}}</div> 
+    </div>
+    <div class="text-center">
+        <button (click)="editSnack(snack)"class="btn btn-success " type="button" data-toggle="modal" data-target="#editModalSnack" >
+            <b>EDIT SNACK</b> 
+           </button>  
+      <button (click)="deleteSnack(snack.name,snack.date)" class="btn btn-success" type="button">
+            <b>DELETE SNACK</b> 
+           </button>
+    </div>
+  </div>

@@ -1,0 +1,97 @@
+<div class="nav flex-column nav-pills">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">
+      <b>ADD PRODUCT</b>
+  </button>
+  <div class="card btn-outline-danger" *ngIf='error !== undefined'>
+      {{error}}
+  </div>
+  <div class="card btn-outline-success" *ngIf='success !== undefined'>
+      {{success}}
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <!-- <img src="..." class="img-fluid" alt="Responsive image"> -->
+          <input type="text" [(ngModel)] = 'product.img' class="form-control" placeholder="Image source url">
+        
+        </div>
+        <div class="row">
+          <input type="text" [(ngModel)] = 'product.name' class="form-control" placeholder="Name" required>
+        </div>
+        <div class="row">
+          <input type="text" [(ngModel)] = 'product.latinName' class="form-control" placeholder="Latin name">
+        </div>
+        <div class="row">
+            <input type="text" [(ngModel)] = 'product.place' class="form-control" placeholder="Place of production">
+        </div>
+        <div class="row">
+          <div class="input-group">
+              <input type="number" [(ngModel)] = 'product.price' class="form-control" placeholder="Price" aria-label="Price of product" required>
+              <div class="input-group-append">
+                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{product.currency.symbol}} ({{product.currency.code}})
+                  </button>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-item btn btn-secondary" *ngFor='let c of currencies' (click)='selectCurrency(c)'>
+                        {{c.symbol}} ({{c.code}})
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="row ">
+            <textarea class="form-control" [(ngModel)] = 'product.description' placeholder="Description" rows="3"></textarea>
+        </div>
+        <div class="row">
+          <!--  -->
+          <div class="input-group mb-3"> 
+              <input type="text" class="form-control" [(ngModel)] = 'tag' placeholder="Tag" aria-label="TAG" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)='addTag()' type="button">ADD</button>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      TAGS
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" *ngFor='let tag of product.tags'>{{tag}}</a>
+                    </div>
+                </div>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {{product.categorie}}
+                    </button>
+                    <div class="dropdown-menu text-center">
+                      <span class="dropdown-item btn-outline-secondary" *ngFor='let cat of categories' (click)='addCat(cat)'>{{cat}}</span>
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col">
+              <input type="number" class="form-control" [(ngModel)] = 'product.proteins' placeholder="Proteins">
+            </div>
+            <div class="col">
+              <input type="number" class="form-control" [(ngModel)] = 'product.carbohydrates' placeholder="Carbohydrates">
+            </div>  
+            <div class="col">
+                <input type="number" class="form-control" [(ngModel)] = 'product.fat' placeholder="Fat" aria-describedby="basic-addon2">                
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" [(ngModel)] = 'product.kcals' placeholder="Calories" aria-describedby="basic-addon2">                
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><b>CLOSE</b></button>
+        <button type="button" class="btn btn-success" (click)='addProduct()' data-dismiss="modal"><b>ADD</b></button>
+
+      </div>
+    </div>
+  </div>
+</div>

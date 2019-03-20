@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-success rounded ">
+  <a class="navbar-brand" routerLink="/">
+            <!-- logo -->
+      <img src="https://cdn1.imggmi.com/uploads/2019/1/29/3fd2fc06823718f253326184723236a2-full.png" alt="Image not loaded properly,refreshing.." style="width: 90px">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample09">
+
+    <form class="form-inline my-2 my-md-0">
+        <li class="btn btn-success font-weight-bold"  routerLink="/daily-plan" >
+          <img src="https://cdn1.imggmi.com/uploads/2019/2/4/d490a351181fa208d91471b414a77350-full.png">        
+          MEAL PLAN
+        </li>
+        <li class="btn btn-success font-weight-bold"  routerLink="/create-carpool-ride" >
+          <img src="https://cdn1.imggmi.com/uploads/2019/2/4/2e4317b97afc16de4c572ca1269cc528-full.png">        
+          FORUM
+        </li>
+        <li class="btn btn-success font-weight-bold"  routerLink="/market" >
+          <img src="https://cdn1.imggmi.com/uploads/2019/2/4/dad4656cf97d475f81850bd94598ba58-full.png">        
+          MARKET
+        </li>
+        <div class="nav-item active font-weight-bold">
+          <div 
+            *ngIf = 'user === undefined || user === "error"'
+            class="btn btn-success font-weight-bold" 
+            routerLink="/profile">
+            <img src="https://cdn1.imggmi.com/uploads/2019/2/4/30991af375ca13653f988cac7d9a7996-full.png">        
+            PROFILE
+        </div>
+        <div
+          *ngIf = 'user !== undefined' 
+          class="btn btn-success font-weight-bold" 
+          routerLink="/profile">
+          <img src="https://cdn1.imggmi.com/uploads/2019/1/9/f970b205c5f350126aec21ace2d397a2-full.png">        
+          {{user.name | uppercase}}
+          </div>
+
+      </div>
+      <label class="btn btn-success font-weight-bold"  routerLink="/home">
+        <img src="https://cdn1.imggmi.com/uploads/2019/2/4/1dbb3467c185b6e7c3022a9fb8225717-full.png">        
+           HOME
+      </label>
+    </form>
+  </div>
+</nav>
+
+

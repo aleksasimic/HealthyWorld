@@ -1,0 +1,5 @@
+<app-navbar></app-navbar>
+<div *ngIf='product !== undefined && product !== null && user !== undefined && user !== null'>
+    <app-product-change *ngIf='product.owner === user.username'></app-product-change>
+    <app-product *ngIf='product.owner !== user.username'></app-product>
+</div>

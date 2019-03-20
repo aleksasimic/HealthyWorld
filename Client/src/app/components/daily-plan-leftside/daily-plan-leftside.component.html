@@ -1,0 +1,52 @@
+<div id="container">
+  <div>
+    <input [(ngModel)]="weight" type="number" placeholder="Insert weight here.." />
+    <input [(ngModel)]="bodyfat" type="number" placeholder="Insert bodyfat here.." />
+  </div>
+  <div>    
+    <input type="radio" name="tip" id="exampleCheck1" (change)="mChanged($event)">
+    <label class="form-check-label" for="exampleCheck2"  > <b>MALE</b></label>
+    <input type="radio" name="tip" id="exampleCheck2" (change)="fChanged($event)">
+    <label class="form-check-label" for="exampleCheck2" ><b>FEMALE</b></label>
+  </div>
+  <div><button 
+  (click) = "calculateCalories()"
+  type="button" 
+  class="btn btn-success"   
+  ><b>CALCULATE CALORY INTAKE</b></button></div>
+  <div><b>RECOMENDED INTAKE:{{result}}</b> </div> 
+  <div><ngb-datepicker [(ngModel)]="date" (select)="onDateSelect()" #d></ngb-datepicker></div>
+
+</div> 
+
+<button 
+  (click) = "recommendBreakfasts()"
+  type="button" 
+  class="btn btn-success"   
+  >
+    <b>RECOMMEND BREAKFASTS </b>
+  </button> 
+  <button 
+    (click) = "recommendLunches()"
+    type="button" 
+    class="btn btn-success"   
+    >
+      <b>RECOMMENDED LUNCHES</b>
+    </button> 
+  <button 
+      (click) = "recommendDinners()"
+      type="button" 
+      class="btn btn-success"   
+      >
+        <b>RECOMMEND DINNERS </b>
+      </button> 
+  <div>
+      <button 
+      (click) = "recommendSnacks()"
+      type="button" 
+      class="btn btn-success"   
+      >
+        <b>RECOMMEND SNACKS</b>
+      </button>
+  </div>
+     

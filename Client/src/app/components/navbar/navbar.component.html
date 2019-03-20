@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-success rounded justify-content-between">
+    <a class="navbar-brand" routerLink="/">
+              <!-- logo -->
+        <img src="https://cdn1.imggmi.com/uploads/2019/1/29/3fd2fc06823718f253326184723236a2-full.png" alt="Image not loaded properly,refreshing.." style="width: 90px">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <form class="form-inline">
+    <div class="collapse navbar-collapse" id="navbarsExample09">
+      <form class="form-inline my-2 my-md-0">
+          <li class="btn btn-success font-weight-bold"  routerLink="/daily-plan" >
+            <img src="https://cdn1.imggmi.com/uploads/2019/2/8/efabec0218e5be77c192d2cb40856043-full.png">
+            MEALS
+          </li>
+          <li class="btn btn-success font-weight-bold"  routerLink="/categories" >
+            <img src="https://cdn1.imggmi.com/uploads/2019/2/8/54f0fe0ada83e5bb2a6890ad98649098-full.png">
+            FORUM
+          </li>
+          <li class="btn btn-success font-weight-bold"  routerLink="/market" (click)='goToMarket()' >
+            <img src="https://cdn1.imggmi.com/uploads/2019/2/8/3dbaacc591866d10231a0bec40c263ed-full.png">
+            MARKET
+          </li>
+          <div class="nav-item active font-weight-bold">
+            <div 
+              *ngIf = 'user.username === "error"'
+              class="btn btn-success font-weight-bold" 
+              routerLink="/profile">
+              <img src="https://cdn1.imggmi.com/uploads/2019/2/8/8898fc35c6d43b5e1c52d835bb667089-full.png"> 
+              PROFILE
+          </div>
+          <div
+            *ngIf = 'user.username !== "error"' 
+            class="btn btn-success font-weight-bold" 
+            routerLink="/profile">
+            <img src="https://cdn1.imggmi.com/uploads/2019/2/8/8898fc35c6d43b5e1c52d835bb667089-full.png">
+            {{user.name | uppercase}}
+            </div>
+  
+        </div>
+        <label class="btn btn-success font-weight-bold"  routerLink="/profile">
+          <img src="https://cdn1.imggmi.com/uploads/2019/2/8/7311483590b7f404758eb34f81853543-full.png">    
+             HOME
+        </label>
+      </form>
+    </div>
+    </form>
+  </nav>
+  
+  
+  

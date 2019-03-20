@@ -1,0 +1,21 @@
+<h2>Add new post</h2>
+
+
+    <div class="col w-75">
+        <div class="mojDiv">
+        <form>
+            <div class="form-group">
+              <label for="exampleFormControlInput1"> Enter tittle:</label>
+              <input type="text" class="form-control" [(ngModel)]="tittle" name="tittle">
+            </div>
+            <div class="form-group">
+              <label for="comment">Enter your post here:</label>
+              <textarea class="form-control" rows="15" id="comment"  [(ngModel)]="post" name="post" ></textarea>
+            </div>
+          </form>
+          <button type="button" class="btn btn-success" (click)="addPost()" value="Add post!" routerLink="/profile">Add post</button>
+        </div> 
+
+    </div>
+
+

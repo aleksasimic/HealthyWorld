@@ -1,0 +1,20 @@
+<div class="nav flex-column nav-pills">
+    <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#sortOptions" aria-expanded="false" aria-controls="collapseExample">
+        <b>SORT</b>
+    </button>
+    <div class="collapse " id="sortOptions">
+      <button class="btn btn-outline-success" (click)='sort("price",true)'><b>PRICE - ASCENDING</b></button>
+      <button class="btn btn-outline-success" (click)='sort("price",false)'><b>PRICE - DESCENDING</b></button>
+      <button class="btn btn-outline-success" (click)='sort("date",true)'><b>DATE - OLDEST FIRST</b></button>
+      <button class="btn btn-outline-success" (click)='sort("date",false)'><b>DATE - NEWEST FIRST</b></button>
+      <button class="btn btn-outline-success" (click)='sort("proteins",true)'><b>PROTEINS - ASCENDING</b></button>
+      <button class="btn btn-outline-success" (click)='sort("proteins",false)'><b>PROTEINS - DESCENDING</b></button>
+      <button class="btn btn-outline-success" (click)='sort("carbohydrates",true)'><b>CARBS - ASCENDING</b></button>
+      <button class="btn btn-outline-success" (click)='sort("carbohydrates",false)'><b>CARBS - DESCENDING</b></button>
+      <button class="btn btn-outline-success" (click)='sort("kcals",true)'><b>KCALS - ASCENDING</b></button>
+      <button class="btn btn-outline-success" (click)='sort("kcals",false)'><b>KCALS - DESCENDING</b></button>
+      <button class="btn btn-outline-success" (click)='sort("fat",true)'><b>FAT - ASCENDING</b></button>
+      <button class="btn btn-outline-success" (click)='sort("fat",false)'><b>FAT - DESCENDING</b></button>
+      <!-- ascending descending -->
+    </div>
+</div>

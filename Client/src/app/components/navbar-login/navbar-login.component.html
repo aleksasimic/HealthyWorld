@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-success rounded justify-content-between ">
+  <a class="navbar-brand" routerLink="/">
+            <!-- logo -->
+      <img src="https://cdn1.imggmi.com/uploads/2019/1/29/3fd2fc06823718f253326184723236a2-full.png" alt="Image not loaded properly,refreshing.." style="width: 90px">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <form class="form-inline">
+      <div class="collapse navbar-collapse" id="navbarsExample09">
+          <form class="form-inline my-2 my-md-0">
+      
+              <div class="nav-item bg-success font-weight-bold" >
+                <input 
+                [(ngModel)] = "username"
+                type="text" 
+                class="form-control" 
+                id="usr11" 
+                name="username"
+                placeholder="username"
+                >
+              </div>
+              <div class="nav-item active font-weight-bold">
+                  <input 
+                  [(ngModel)] = "password"
+                  type="password" 
+                  class="form-control" 
+                  id="pwd11" 
+                  name="password"
+                  placeholder="password"
+                  > 
+      
+              </div>
+            <!-- <label class=" font-weight-bold"  routerLink="/profile"> -->
+              <!-- <div class="input-group-append"> -->
+                  <button 
+                  routerLink="/profile"
+                  type="button"
+                  (click) = 'login()'
+                  class="btn btn-success" ><b>LOG IN</b></button>
+              <!-- </div> -->
+            <!-- </label> -->
+      
+          </form>
+        </div>    
+  </form>
+</nav>
+
+

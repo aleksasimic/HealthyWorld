@@ -1,0 +1,18 @@
+#collapseExample{
+    float:left;
+    height:200px;
+    width:50%;
+    overflow:hidden; overflow-y:scroll;
+}
+button{
+    margin-right:5px;
+}
+#desni{
+    margin-left:30px;
+}
+#collapseExample1{
+    height:200px;
+    width:50%;
+    float:left;
+    overflow:hidden; overflow-y:scroll;
+}

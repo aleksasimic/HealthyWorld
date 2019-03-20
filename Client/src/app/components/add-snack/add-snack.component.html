@@ -1,0 +1,11 @@
+<div>
+    <div id="inputs">
+      <div><input class="form-control" [(ngModel)]="snackname" placeholder="Snack name.." /></div>
+      <div><input class="form-control" [(ngModel)]="snacktype" placeholder="Snack type.." /></div>
+      <div><input class="form-control" [(ngModel)]="snackimg" placeholder="Snack img URL.." /></div>
+     <div> <input class="form-control" type="number" [(ngModel)]="snackcals" placeholder="Snack kcals.." /></div>
+     <div> <input class="form-control" type="number" [(ngModel)]="snackprotein" placeholder="Snack protein.." /> </div>
+     <div><input class="form-control" type="number" [(ngModel)]="snackfat" placeholder="Snack fat.." /> </div>
+     <div class="text-center"><button  class="btn btn-success" data-dismiss="modal" (click) = "submit()" ><b>SUBMIT</b></button><button type="button" class="btn btn-success" data-dismiss="modal"><b>CLOSE</b></button></div>
+    </div>
+  </div>

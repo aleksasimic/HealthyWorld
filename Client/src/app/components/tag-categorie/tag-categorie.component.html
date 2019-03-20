@@ -1,0 +1,22 @@
+<div class="input-group mb-3"> 
+    <input type="text" class="form-control" [(ngModel)] = 'tag' placeholder="Tag" aria-label="TAG" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" (click)='addTag()' type="button">ADD</button>
+      <div class="input-group-append">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            TAGS
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" *ngFor='let tag of product.tags'>{{tag}}</a>
+          </div>
+      </div>
+      <div class="input-group-append">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{product.categorie}}
+          </button>
+          <div class="dropdown-menu text-center">
+            <span class="dropdown-item btn-outline-success" *ngFor='let cat of categories' (click)='addCat(cat)'>{{cat}}</span>
+          </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div>
+    <div id="inputs">
+      <div ><b>Name:</b>{{snack.name}}</div>
+      <div><b>Type:</b> </div>
+      <div> <input class="form-control" [(ngModel)]="snack.type" /></div>
+      <div><b>Kcals:</b> </div>
+      <div> <input class="form-control" [(ngModel)]="snack.kcals" /></div>
+      <div><b>Protein:</b> </div>
+      <div> <input class="form-control" [(ngModel)]="snack.protein" /></div>
+      <div><b>Fat:</b> </div>
+      <div> <input class="form-control" [(ngModel)]="snack.fat" /></div>
+        <div class="text-center"><button  class="btn btn-success"  (click) = "submit(snack)" data-dismiss="modal" ><b>SUBMIT</b></button> <button type="button" class="btn btn-success" data-dismiss="modal"><b>CANCEL</b></button></div>
+    </div>
+  </div>

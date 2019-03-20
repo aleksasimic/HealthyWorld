@@ -1,0 +1,111 @@
+<div class="col">
+    <div class="row">
+      <div class="input-group">
+          <input type="text" [(ngModel)] = 'name' class="form-control" placeholder="Name or Latin name or Product ID" aria-label="Price of product" required>
+          <div class="input-group-append">
+            <button (click)='find()' class="btn btn-outline-success"><b>FIND</b></button>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- <div class="row"> -->
+          <div class="input-group-append">
+              <!-- <div class="col"> -->
+                  <div class="dropdown show">
+                      <a class="btn btn-outline-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <b>TAGS</b> 
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <input [(ngModel)] = 'tag' type="text"  class="form-control dropdown-item" placeholder="TAG">              
+                        <button (click)='addTag()' class="btn btn-outline-success m-1">ADD</button>
+                        <button (click)='clearTags()' class="btn btn-outline-success m-1">CLEAR</button>
+                        <a *ngFor='let t of tags' class="dropdown-item" >{{t}}</a>
+                      </div>
+                    </div>
+              <!-- </div> -->
+              <!-- <div class="col"> -->
+                  <div class="dropdown show">
+                      <a class="btn btn-outline-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>{{selectedCat}}</b>
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <!-- <input type="text" class="form-control dropdown-item" placeholder="NEsto">               -->
+                        <a class="dropdown-item" *ngFor='let c of categories' (click)='selectCategorie(c)'>
+                          {{c}}
+                        </a>
+                      </div>
+                    </div>
+              <!-- </div> -->
+              <!-- <div class="col"> -->
+                  <div class="dropdown show">
+                      <a class="btn btn-outline-success dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>PRICE</b>
+                      </a>
+                      <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+                          <input [(ngModel)] = 'minPrice' type="number" class="form-control dropdown-item" placeholder="Min">              
+                          <input [(ngModel)] = 'maxPrice' type="number" class="form-control dropdown-item" placeholder="Max">              
+                          <!-- <button class="btn btn-outline-success m-1">SET</button> -->
+                      </div>
+                  </div>
+                  <div class="dropdown show">
+                      <a class="btn btn-outline-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>{{selectedCurrency.code}} ({{selectedCurrency.symbol}})</b>
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item" *ngFor='let c of currencies' (click)='selectCyrrency(c)'>
+                            {{c.code}} ({{c.symbol}})
+                          </a>
+                      </div>
+                  </div>
+            </div>
+      <!-- </div> -->
+      <!-- <div class="row">
+  
+      </div>     -->
+  
+      <div class="input-group">
+  
+        <div class="dropdown show">
+            <a class="btn btn-outline-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <b>PROTEINS</b>
+            </a>
+            <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+                <input [(ngModel)] = 'minProteins' type="number" class="form-control dropdown-item" placeholder="Min">              
+                <input [(ngModel)] = 'maxProteins' type="number" class="form-control dropdown-item" placeholder="Max">              
+                <!-- <button class="btn btn-outline-success m-1">SET</button> -->
+            </div>
+        </div>
+        <div class="dropdown show">
+            <a class="btn btn-outline-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <b>CARBOHYDRATES</b>
+            </a>
+            <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+                <input [(ngModel)] = 'minCarb' type="number" class="form-control dropdown-item" placeholder="Min">              
+                <input [(ngModel)] = 'maxCarb' type="number" class="form-control dropdown-item" placeholder="Max">              
+                <!-- <button class="btn btn-outline-success m-1">SET</button> -->
+            </div>
+        </div>
+        <div class="dropdown show">
+            <a class="btn btn-outline-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <b>KCALS</b>
+            </a>
+            <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+                <input [(ngModel)] = 'minKCals' type="number" class="form-control dropdown-item" placeholder="Min">              
+                <input [(ngModel)] = 'maxKCals' type="number" class="form-control dropdown-item" placeholder="Max">              
+                <!-- <button class="btn btn-outline-success m-1">SET</button> -->
+            </div>
+        </div>
+        <div class="dropdown show">
+            <a class="btn btn-outline-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <b>FAT</b>
+            </a>
+            <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+                <input [(ngModel)] = 'minFat' type="number" class="form-control dropdown-item" placeholder="Min">              
+                <input [(ngModel)] = 'maxFat' type="number" class="form-control dropdown-item" placeholder="Max">              
+                <!-- <button class="btn btn-outline-success m-1">SET</button> -->
+            </div>
+        </div>
+          <button (click)='find()' class="btn btn-outline-success" id="Find2"><b>FIND</b></button>
+      </div>    
+    </div>
+  </div>

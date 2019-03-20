@@ -1,0 +1,127 @@
+
+<div 
+class="row">
+    <div class="col-7" >
+        
+            <div class="modal-content">
+            
+            <!-- Modal Header -->
+            <div class="modal-header" >
+            <h4 class="modal-title">SIGN UP</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body" >
+                  <div class="form-group">
+                      <!-- <label for="usr">Retype password:</label> -->
+                      <input 
+                      [(ngModel)] = "user.username"
+                      type="text" 
+                      class="form-control" 
+                      id="username" 
+                      name="username"
+                      placeholder="Username">         
+                  </div>
+                  <div class="form-group">
+                    <!-- <label for="usr">Retype password:</label> -->
+                    <input 
+                    [(ngModel)] = "user.email"
+                    type="text" 
+                    class="form-control" 
+                    id="email" 
+                    name="email"
+                    placeholder="E-mail">         
+                </div>
+                  <div class="form-group">
+                    <!-- <label for="usr">Name:</label> -->
+                    <input 
+                    [(ngModel)] = "user.name"
+                    type="text" 
+                    class="form-control" 
+                    id="name" 
+                    name="name" 
+                    placeholder="First name">
+                  </div>
+                  <div class="form-group">
+                    <!-- <label for="usr">Surname:</label> -->
+                    <input 
+                    [(ngModel)] = "user.surname"
+                    type="text" 
+                    class="form-control" 
+                    id="surname" 
+                    name="surname" 
+                    placeholder="Surname">
+                  </div>
+
+                  <div class="form-group">
+                      <!-- <label for="usr">Surname:</label> -->
+                      <input 
+                      [(ngModel)] = "user.phoneNumber"
+                      type="text" 
+                      class="form-control" 
+                      id="phoneNumber" 
+                      name="phoneNumber" 
+                      placeholder="Phone number">
+                    </div>
+                    <div class="form-group">
+                      <!-- <label for="usr">Surname:</label> -->
+                      <input 
+                      [(ngModel)] = "user.img"
+                      type="text" 
+                      class="form-control" 
+                      id="userImage" 
+                      name="userImage" 
+                      placeholder="Profile image URL">
+                    </div>
+            
+                  <div class="form-group">
+                    <!-- <label for="usr">Password:</label> -->
+                    <input 
+                    [(ngModel)] = "user.password"
+                    type="password" 
+                    class="form-control" 
+                    id="pwd1" 
+                    name="password1" 
+                    placeholder="Password">
+                           
+                  </div>
+                  <div class="form-group">
+                    <!-- <label for="usr">Retype password:</label> -->
+                    <input 
+                    [(ngModel)] = "passwd2"
+                    type="password" 
+                    class="form-control" 
+                    id="pwd2" 
+                    name="password2"
+                    placeholder="Retype password">         
+                  </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer" >
+              <button 
+              (click) = "signUp()"
+              routerLink = "/profile"
+              type="button" 
+              class="btn btn-success"   
+              data-dismiss="modal">
+                <b>SUBMIT</b>
+              </button>  
+              
+            
+            </div>
+            
+            </div>            
+    </div>
+
+    <div class="col-4">
+      <div class="row"></div>
+      <div class="rowI">
+       <img src="https://cdn1.imggmi.com/uploads/2019/1/29/3fd2fc06823718f253326184723236a2-full.png" width="450px" alt="Image not loaded properly,refreshing..">
+      </div>
+      <div class="row"></div>
+
+    </div>
+
+</div>
+

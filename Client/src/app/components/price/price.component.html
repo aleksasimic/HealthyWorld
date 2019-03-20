@@ -1,0 +1,13 @@
+<div class="input-group">
+    <input type="number" [(ngModel)] = 'product.price' class="form-control" placeholder="Price" aria-label="Price of product" required>
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{product.currency.symbol}} ({{product.currency.code}})
+        </button>
+        <div class="dropdown-menu">
+          <div class="dropdown-item btn btn-secondary" *ngFor='let c of currencies' (click)='selectCurrency(c)'>
+              {{c.symbol}} ({{c.code}})
+          </div>
+        </div>
+    </div>
+  </div>

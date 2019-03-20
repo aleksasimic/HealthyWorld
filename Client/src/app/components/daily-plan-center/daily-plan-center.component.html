@@ -1,0 +1,114 @@
+<h3>Meals for selected day</h3>
+<div id="containermeals">
+    <app-meal-list-my></app-meal-list-my>
+</div>
+<h3>Snacks for selected day</h3>
+<div id="containersnacks">
+    <app-snack-list-my></app-snack-list-my>
+</div>
+
+
+        
+      
+        <div class="text-center">
+        <button m-5
+        data-toggle="modal" data-target="#myModalMeal"
+        type="button" 
+        class="m-5 btn btn-success"   
+        >
+       
+        <b>ADD MEAL</b>
+      </button>
+      <button 
+      data-toggle="modal" data-target="#myModalSnack"
+      type="button"  class="m-5 btn btn-success"  
+      >
+        <b>ADD SNACK</b>
+      </button>  
+      </div>
+      <div class="modal" id="myModalMeal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+        
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title ">ADD MEAL FORM</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+        
+              <!-- Modal body -->
+              <div class="modal-body">
+                  <app-add-meal></app-add-meal>
+              </div>
+        
+              <!-- Modal footer -->
+        
+            </div>
+          </div>
+        </div>
+        <div class="modal" id="myModalSnack">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <!-- Modal Header -->
+                <div class="modal-header text-center">
+                  <h4 class="modal-title">ADD SNACK FORM</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <app-add-snack></app-add-snack>
+                </div>
+          
+                <!-- Modal footer -->
+          
+              </div>
+            </div>
+          </div>
+
+          <div id="editModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+          
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">EDIT MEAL FORM</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <app-edit-meal *ngFor="let meal of editmeal$ | async"
+                    [meal]="meal"
+                    >
+                    </app-edit-meal>
+                </div>
+                <div class="modal-footer">
+                  
+                </div>
+              </div>
+          
+            </div>
+          </div>
+
+          <div id="editModalSnack" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+            
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title">EDIT SNACK FORM</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                      <app-edit-snack *ngFor="let snack of editsnack$ | async"
+                      [snack]="snack"
+                      >
+                      </app-edit-snack>
+                  </div>
+                  <div class="modal-footer">
+                    
+                  </div>
+                </div>
+            
+              </div>
+            </div>

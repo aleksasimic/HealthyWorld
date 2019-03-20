@@ -1,0 +1,139 @@
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        
+  <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseProfile" aria-expanded="false" aria-controls="collapseExample">
+      <b>EDIT PROFILE</b>
+  </button>
+  <div class="collapse" id="collapseProfile">
+          <div class="form-group">
+            <label for="exampleInputName">NAME</label>
+            <input [(ngModel)]="nameupdate" type="text" class="form-control" id="exampleInputName" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+              <label for="exampleInputUsername">SURNAME</label>
+              <input [(ngModel)]="surnameupdate" type="text" class="form-control" id="exampleInputUsername" placeholder="Enter your username">
+          </div>
+          <button (click)="updateOne()" type="submit" class="btn btn-dark">SAVE CHANGES</button>
+        </div>  
+  <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="false" aria-controls="collapseExample">
+      <b>ACCOUNT SETTINGS</b>
+  </button>
+  <div class="collapse" id="collapseSettings">
+          <div class="form-group">
+            <label for="exampleInputEmail1">EMAIL</label>
+            <input [(ngModel)]="emailupdate" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small  id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">PASSWORD</label>
+            <input [(ngModel)]="passwordupdate" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+
+          <button (click)="updateTwo()" type="submit" class="btn btn-dark">SAVE CHANGES</button>
+  </div>
+        <button 
+        (click) = "getNot(user.username)"
+        class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseNotifications" aria-expanded="false" aria-controls="collapseExample">
+          <b>NOTIFICATIONS</b>
+        </button>
+        <form class="collapse text-center" id="collapseNotifications">
+              <!-- <app-settings-notifications></app-settings-notifications> -->
+                <div
+                *ngFor = 'let n of not'>
+                <div class="row">
+                  <div class="col"></div>
+                  <div class="col">
+                      <div
+                      *ngIf = '!n.seen'
+                      class="btn btn-danger"
+                      (mouseover) = "seen(n)"
+                      >
+                        {{n.senderUsername}} : {{n.stopName}} ({{n.date}}) 
+                        
+                      </div>  
+                      <div
+                      *ngIf = 'n.seen'
+                      class="btn btn-success"
+                      >
+                        {{n.senderUsername}} : {{n.stopName}} ({{n.date}})            
+                      </div>
+                  </div>
+                  <div class="col"></div>
+                </div>
+                <div class="row">
+                  <div class="col-sm"></div>
+                  <div class="col">
+                      <div class="btn btn-outline-success" (click)='approve(n, true)'>
+                          APPROVE
+                        </div>
+                        <div class="btn btn-outline-danger" (click)='approve(n, false)'>
+                            DECLINE
+                        </div>
+                  </div>
+                  <div class="col-sm"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm"></div>
+                    <div class="col">
+                        <div *ngIf='!n.approve' class="btn btn-danger"> STATUS </div>
+                        <div *ngIf='n.approve' class="btn btn-success"> STATUS </div>
+                        <div class="btn btn-dark" (click)='deleteNot(n)'>DELETE</div>
+                    </div>
+                    <div class="col-sm"></div>
+      
+      
+                </div>
+      
+                
+                </div>
+        </form>
+
+
+  <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseFeedback" aria-expanded="false" aria-controls="collapseExample">
+      <b>SEND FEEDBACK</b>
+  </button>
+  <form class="collapse" id="collapseFeedback">
+          <div class="form-group">
+            <label for="exampleInputFeedback">HAVE FEEDBACK? WE'D LOVE TO HEAR IT!</label>
+            <input type="email" class="form-control" id="exampleInputFeedback">
+          </div>
+
+          <button type="submit" class="btn btn-success">SEND FEEDBACK</button>
+  </form>
+  <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseSocial" aria-expanded="false" aria-controls="collapseExample">
+      <b>SOCIAL</b>
+  </button>
+    <div  class="collapse" id="collapseSocial">
+
+      <div class="form-group">
+          MY FRIENDS
+         <button type="submit" (click)="findFriends()" class="btn btn-dark">FIND</button>
+       </div>
+          <div class="form-group">
+             USERS TO REVIEW
+            <button type="submit" (click)="usersReview()" class="btn  btn-dark">FIND</button>
+          </div>
+          <div class="form-group">
+              LIKED USERS
+              <button type="submit" (click)="likedUsers()" class="btn btn-dark">FIND</button>
+          </div>
+          <div class="form-group">
+              DISLIKED USERS
+              <button type="submit" (click)="dislikedUsers()" class="btn btn-dark">FIND</button>
+          </div>
+          <div class="form-group">
+              MUTUAL FRIENDS WITH USER:
+              <input [(ngModel)]="usernameformatch" type="email" class="form-control" id="exampleInputFeedback1" placeholder="Username..">
+              <button type="submit" (click)="mutualFriends()" class="btn btn-dark">FIND </button>
+            </div>
+    </div>    
+
+  <button 
+  (click) = "logOut()"
+  routerLink = "/"
+  class="btn btn-outline-dark" 
+  type="button">
+      <b>SIGN OUT</b>
+  </button>
+
+
+</div>

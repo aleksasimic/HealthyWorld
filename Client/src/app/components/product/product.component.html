@@ -1,0 +1,97 @@
+<div class="row" *ngFor='let product of products$ | async'>
+  <div class="col-2"></div>
+  <div class="col text-center">
+      <div>
+          <div class="card mt-4">
+            <img class="card-img-top img-fluid" src={{product.img}} style="width:900px; height:400px;" alt="Product image">
+            
+            <div class="card-body">
+              <h3>{{product.name}}   {{product.price}} {{product.currency.symbol}}</h3>
+              <!-- <small>{{product.latinName}}</small> -->
+              <!-- <div class="btn-outline-success">OWNER: {{product.owner}}</div> -->
+              <div class="row">
+                <div class="col text-left">
+                  <b class="text-success">PRODUCT</b> <br>
+                  <ngb-rating [(ngModel)]="currentRate" (click)='like()'>
+                      <ng-template let-fill="fill" let-index="index">
+                        <span class="star" [class.filled]="fill === 100" >&#9733;</span>
+                      </ng-template>
+                  </ngb-rating>
+                  <!-- <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> -->
+                </div>
+                <div class="col text-right">
+                    <b class="text-primary">OWNER</b> {{product.owner}} <br>
+                  </div>
+              </div>
+              <hr>
+              <div class="row">
+                  <p class="col text-left ">
+                      <b class="text-success">PRODUCT ID:</b> {{product.pid}} <br>
+                      <b class="text-success">latin name:</b>  {{product.latinName}} <br> 
+                      <b class="text-success">produced:</b> {{product.place}} <br>
+                      <b class="text-success">categorie:</b> {{product.categorie}} <br>
+                    </p>
+                  <p class="col text-right">
+                      <b class="text-primary">full name: </b> {{product.ownerObj.name}} {{product.ownerObj.surname}}<br>
+                      <b class="text-primary">e-mail: </b> {{product.ownerObj.email}} <br>
+                      <b class="text-primary">phone number: </b> {{product.ownerObj.phoneNumber}} <br>
+                      <b class="text-primary">user since: </b> {{product.ownerObj.date |  date: 'MM/dd/yyyy'}} <br>
+                    </p>
+              </div>
+
+              <hr>
+              <p class="text-left">
+                <b class="text-success">proteins:</b> {{product.proteins}} <br>
+                <b class="text-success">carbohydrates:</b> {{product.carbohydrates}} <br>
+                <b class="text-success">kcals:</b> {{product.kcals}} <br>
+                <b class="text-success">fat:</b> {{product.fat}} <br>
+            </p>
+              <hr>
+              <p class=" text-left">{{product.description}}</p>
+              <hr>
+              <div class="text-left">
+                <button class="btn btn-outline-success dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    TAGS
+                  </button>
+                  <div class="dropdown-menu">
+                    <p class="dropdown-item btn-outline-success" *ngFor='let tag of product.tags'>{{tag}}</p>
+                  </div>
+              </div>
+              <div>views: {{product.views}}</div>
+              <button class="btn btn-outline-primary" (click)='goBack()'>BACK</button>
+            </div>
+          </div>
+          <!-- /.card -->
+        
+          <div class="card card-outline-secondary my-4 text-center">
+            <div class="card-header">
+              Product Reviews
+            </div>
+            <div class="card-body">
+              <!-- u ovaj p neki ngFor -->
+              <div class="collapse  card card-body" id="leavReview" >
+                  <textarea rows="4" [(ngModel)]='txtReview'></textarea>
+                  <div>
+                      <button class="btn btn-success" (click)="addReview()" data-toggle="collapse" href="#leavReview">
+                        ADD
+                      </button>
+                  </div>
+              </div>
+              <div class="card btn-outline-danger" *ngIf='error !== undefined'>
+                {{error}}
+              </div>
+              <div class="btn btn-success" data-toggle="collapse" href="#leavReview" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Leave a Review
+              </div>
+              <hr>
+              <app-review *ngFor='let r of product.reviews' [review] = 'r'></app-review>
+            </div>
+          </div>
+          <!-- /.card -->
+        
+        </div>
+        <!-- /.col-lg-9 -->        
+  </div>
+  <div class="col-2"></div>
+
+</div>

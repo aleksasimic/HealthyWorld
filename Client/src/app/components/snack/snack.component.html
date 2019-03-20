@@ -1,0 +1,22 @@
+<div class="card" style="width: 100%;">
+    <div><img style='height: 100%; width: 100%; object-fit: contain' src={{snack.img}}></div>
+    <div class="card-body">
+      <h5 class="card-title"><b>Snack name:</b>{{snack.name}}</h5>
+      <div><b>Type:</b>{{snack.type}}</div>
+      <div><b>Kcals:</b>{{snack.kcals}}</div>
+      <div><b>Proteins:</b>{{snack.protein}}</div>
+      <div><b>Fat:</b>{{snack.fat}}</div>
+      <!-- <div style="text-align: center;"><a title="Recipe" data-toggle="popover" data-placement="right" data-content="meal.recipe" class="btn btn-success"><b>VIEW RECIPE</b></a></div> -->
+      <div class="text-center">
+        <button 
+        (click) = "addtoMySnacks(snack.name,snack.type,snack.kcals,snack.protein,snack.fat,snack.img)"
+        type="button" 
+        class="btn btn-success"   
+        >
+          <b>ADD TO MY SNACKS</b>
+        </button>
+      </div>  
+    </div>
+  </div>
+
+

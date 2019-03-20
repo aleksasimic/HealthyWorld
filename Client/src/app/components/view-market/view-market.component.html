@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<div class="row">
+    <div class="col-2">
+        <app-product-add></app-product-add>
+        <app-product-sort></app-product-sort>
+        
+    </div>
+    <div class="col">
+        <app-product-find></app-product-find>
+        <app-product-list></app-product-list>
+    </div>
+    <div class="col-3">
+
+        <div class="card card-body" *ngIf='user !== undefined && user !== null'>
+                <p class="text-center text-primary">
+                     <b>{{user.name}} FAVORITE PRODUCTS</b>
+                </p>
+                <div  *ngFor='let favProduct of user.favoriteProducts'>
+                    <app-product-favorite [product]='favProduct' [user]='user'></app-product-favorite>
+                </div>
+        </div>
+    </div>
+</div>

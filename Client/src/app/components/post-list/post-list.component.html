@@ -1,0 +1,23 @@
+
+  <app-navbar></app-navbar>
+
+<div class="row" data-spy="scroll" data-target=".navbar" data-offset="50">
+  <div class="w-50 col">
+<h3>Category:{{category}}</h3>
+<div *ngFor="let post of filteredPosts ">
+
+  <div class="media border p-3 shadow-sm pt-4 mb-4 bg-white" (click)="select(post)"  routerLink="/post">
+    <img src={{post.img}} alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+    <div class="media-body">
+      <h5>{{post.username}} <small><i>Posted on {{post.date | date:'yyyy-MM-dd'}}</i></small></h5>
+      <h3>{{post.tittle}}</h3>
+    </div>
+  </div>
+
+
+
+</div>
+</div>
+<div class="col"><app-create-post></app-create-post></div>
+</div>
+

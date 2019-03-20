@@ -1,0 +1,87 @@
+<div class="row" *ngFor='let product of products$ | async'>
+  <div class="col-2"></div>
+  <div class="col text-center">
+      <div>
+          <div class="card mt-4">
+            <img class="card-img-top img-fluid"  src={{product.img}} style="width:900px; height:400px;" alt="Product image">
+            
+            <div class="card-body">
+              <h3>   
+                <input type="text" class="form-control" [(ngModel)]='product.name'>
+                <app-price [product]='product'></app-price>
+              </h3>
+              <div class="btn-outline-success">OWNER: {{product.owner}}</div>
+              <app-tag-categorie [product]='product'></app-tag-categorie>
+              <hr>
+              <p class="text-left">
+                <b>PRODUCT ID:</b> {{product.pid}} <br>
+              </p>
+              <hr>
+              <p class="text-left">
+                
+                <b>latin name</b>   <br> 
+                <input type="text" class="form-control" [(ngModel)]='product.latinName'>
+ 
+                <b>produced</b> <br>
+                <input type="text" class="form-control" [(ngModel)]='product.place'>
+
+              </p>
+              <hr>
+              <p class="text-left">
+                <b>proteins</b>  <br>
+                <input type="text" class="form-control" [(ngModel)]='product.proteins'>
+                <b>carbohydrates</b>  <br>
+                <input type="text" class="form-control" [(ngModel)]='product.carbohydrates'>
+                <b>kcals</b>  <br>
+                <input type="text" class="form-control" [(ngModel)]='product.kcals'>
+                <b>fat</b>  <br>
+                <input type="text" class="form-control" [(ngModel)]='product.fat'>
+              </p>
+              <p class=" text-left"><b>description</b> 
+                <textarea [(ngModel)] = 'product.description' class="form-control" > </textarea>
+              </p>
+
+              <ngb-rating [(ngModel)]="currentRate">
+                  <ng-template let-fill="fill" let-index="index">
+                    <span class="star" [class.filled]="fill === 100" >&#9733;</span>
+                  </ng-template>
+              </ngb-rating>
+
+              <div class="mb-2 mt-2">views: {{product.views}}</div>
+              <p class="btn-outline-success" *ngIf='success !== null && success !== undefined'>{{success}}</p>
+              <button (click)='delete()' class="btn btn-outline-danger mr-2" routerLink = '/profile'>DELETE</button>
+              <button (click)='goBack()'class="btn btn-outline-primary mr-2 ml-2">BACK</button>
+              <button (click)='change()' class="btn btn-outline-success ml-2">CHANGE</button>
+            </div>
+          </div>
+                
+        </div>
+        <div class="card card-outline-secondary my-4 text-center">
+            <div class="card-header">
+              Product Reviews
+            </div>
+            <div class="card-body">
+              <!-- u ovaj p neki ngFor -->
+              <div class="collapse  card card-body" id="leavReview" >
+                  <textarea rows="4" [(ngModel)]='txtReview'></textarea>
+                  <div>
+                      <button class="btn btn-success" (click)="addReview()" data-toggle="collapse" href="#leavReview">
+                        ADD
+                      </button>
+                  </div>
+              </div>
+              <div class="card btn-outline-danger" *ngIf='error !== undefined'>
+                {{error}}
+              </div>
+              <div class="btn btn-success" data-toggle="collapse" href="#leavReview" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Leave a Review
+              </div>
+              <hr>
+              <app-review *ngFor='let r of product.reviews' [review] = 'r'></app-review>
+            </div>
+          </div>
+  </div>
+
+  <div class="col-2"></div>
+
+</div>

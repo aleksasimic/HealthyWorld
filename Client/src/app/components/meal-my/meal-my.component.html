@@ -1,0 +1,33 @@
+<div class="card" style="width: 100%;">
+    <div><img style='height: 100%; width: 100%; object-fit: contain' src={{meal.img}} class="card-img-top" alt="..."></div>
+    <div class="card-body">
+      <h5 class="card-title"><b>Meal name:</b>{{meal.name}}</h5>
+      <div><b>Date:</b>{{meal.date.day}}.{{meal.date.month}}.{{meal.date.year}} </div>
+      <div><b>Time:</b>{{meal.time.hour}}<b>h</b>:{{meal.time.minute}}<b>min</b> </div>
+      <div><b>Type:</b>{{meal.type}}</div>
+      <div><b>Description:</b>{{meal.description}}</div>
+      <div><b>Ingridients:</b></div>
+      <div *ngFor="let ingridient of meal.ingridients">
+        <li>{{ingridient.name}}</li>
+      </div>
+      <div><b>Kcals:</b>{{meal.kcals}}</div>
+      <div><b>Proteins:</b>{{meal.protein}}</div>
+      <div><b>Fat:</b>{{meal.fat}}</div> 
+      <div class="text-center">
+          <button (click)="editMeal(meal)"class="btn btn-success" type="button" data-toggle="modal" data-target="#editModal">
+              <b>EDIT MEAL</b> 
+             </button>  
+        <button (click)="deleteMeal(meal.name,meal.date)" class="btn btn-success " >
+              <b>DELETE MEAL</b> 
+             </button>
+          <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <b>VIEW RECIPE</b> 
+          </button>
+          <div class="dropdown-menu">
+            <div class="dropdown-item" >{{meal.recipe}}</div>
+          </div>
+        </div> 
+    </div>
+  </div>
+
+

@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="row">
+      <div class="col">
+        <img src={{product.img}} style="width:130px; height:130px;"  routerLink="/product" (click)='viewProduct()' alt="Product image"/>
+      </div>
+      <div class="col">
+            <b class="btn-outline-success" routerLink="/product" (click)='viewProduct()' >name: </b> {{product.name}} <br>
+            <b class="text-success">price: </b> {{product.price}} {{product.currency.symbol}} <br>            
+            <b class="text-primary">owner: </b> {{product.owner}} <br>
+            <br>
+            <p class="btn btn-outline-danger" (click)='deleteFavorite()'>DELETE</p>
+
+      </div>
+  </div>
+</div>

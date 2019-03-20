@@ -1,0 +1,14 @@
+<div class="card" style="width: 100%;">
+  <img style='height: 100%; width: 100%; object-fit: contain' src={{food.img}} class="card-img-top" alt="...">
+
+  <div class="card-body">
+    <h5 class="card-title"><b>Name:</b>{{food.name}}</h5>
+    <div><b>Description:</b>{{food.description}}</div>
+    <div><b>Price:</b>{{food.price}}</div>
+    <div><b>Daily recomended:</b>{{food.dailyrecomended}}</div>
+    <div><b>Kcals:</b>{{food.kcals}}</div>
+    <div><b>Proteins:</b>{{food.protein}}</div>
+    <div><b>Fat:</b>{{food.fat}}</div>
+    <div class="text-center"><button  class="btn btn-success"  (click) = "unselectFood(food)" ><b>REMOVE INGRIDIENT</b></button></div>
+  </div>
+</div>

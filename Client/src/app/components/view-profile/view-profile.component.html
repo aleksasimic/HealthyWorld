@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+
+<div class="row text-center" >
+  <div class="col card">
+    <h3 *ngIf = 'user.username !== "error"'>{{user.name}} {{user.surname}}</h3>
+    <small  class="form-text text-muted" *ngIf = 'user.date !== null'>
+      user since: {{date.getDate()}}.{{date.getMonth()+1}}.{{date.getFullYear()}}
+    </small>
+
+    <div class="btn btn-danger" *ngIf = 'user.username === "error"' role="alert" routerLink='/'>
+        {{user.surname}}
+    </div>
+    <div class="text-center">
+        <img 
+        style='height: 100%; width: 100%; object-fit: contain'
+        src={{user.img}} 
+        class="rounded" 
+        alt="Slika korisnika nije pronadjena... :/">
+    </div>
+
+    <app-settings [user] = 'user'> </app-settings>
+  </div>
+  <div class="col-8 nav flex-column nav-pills" *ngIf = 'user !== undefined '>
+
+    <app-product-add *ngIf = 'user.username !== "" && user.username !== "error" '></app-product-add>
+    <button class="btn btn-outline-success" type="button" data-toggle="collapse" data-target="#cMyProducts" aria-expanded="false" aria-controls="collapseExample">
+        <b>MY PRODUCTS LIST</b>
+    </button>
+    <!-- KOLAPS KOJI SE PRIKAZUJE JE U view-profile -->
+    <div class="collapse" id="cMyProducts" *ngIf='this.user.products !== null && this.user.products !== undefined'>
+      <div *ngFor='let pro of this.user.products'>
+         <app-product-small [product]='pro'></app-product-small>
+      </div>
+    </div>
+  </div>
+</div>

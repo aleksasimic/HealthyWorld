@@ -1,0 +1,42 @@
+<div class="dropdown">
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+    <b>CHOOSE MEAL</b>
+  </button>
+  <div class="dropdown-menu">
+    <button (click) = "breakfastSelected()" class="dropdown-item" ><b>BREAKFAST</b></button>
+    <button (click) = "lunchSelected()" class="dropdown-item" ><b>LUNCH</b> </button>
+    <button (click) = "dinnerSelected()" class="dropdown-item"><b>DINNER</b></button>
+  </div>
+  <div id="inputs">
+    <div><input class="form-control" [(ngModel)]="mealname" placeholder="Meal name.." /></div>
+    <div><input class="form-control" [(ngModel)]="mealdescription" placeholder="Meal description.." /></div>
+    <div><input class="form-control" [(ngModel)]="mealimg" placeholder="Meal image URL.." /></div>
+    <div>
+      <button  class="btn btn-success"  (click) = "findIngridents()" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><b>CHOOSE INGRIDIENTS</b></button>
+      <button id="desni" class="btn btn-success" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1" ><b>CHOSEN INGRIDIENTS</b></button></div>
+    <div class="dva">
+    <div class="collapse" id="collapseExample">
+      <div id="cont">
+        <app-food-list>
+
+        </app-food-list>
+      </div>
+    </div>
+    <div class="collapse" id="collapseExample1">
+      <div id="cont2">
+       
+        <app-food-list-selected>
+
+        </app-food-list-selected>
+      </div>
+    </div> 
+    </div>
+    <div> <textarea [(ngModel)]="mealrecipe" placeholder="Insert meal recipe here.." name="textarea" style="width:250px;height:150px;"></textarea></div>
+   <div> <input class="form-control" type="number" [(ngModel)]="mealkcals" placeholder="Meal kcals.." /></div>
+   <div> <input class="form-control" type="number" [(ngModel)]="mealprotein" placeholder="Meal protein.." /> </div>
+   <div><input class="form-control" type="number" [(ngModel)]="mealfat" placeholder="Meal fat here.." /> </div>
+   <div class="text-center"><button  class="btn btn-success" data-dismiss="modal" (click) = "submit() " ><b>SUBMIT</b></button> <button type="button" class="btn btn-success" data-dismiss="modal"><b>CLOSE</b></button> </div>
+  </div>
+  
+</div>
+<!-- (click) = "chosenIngridients()" -->
